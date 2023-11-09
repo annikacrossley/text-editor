@@ -25,12 +25,12 @@ export const putDb = async (content) => {
   //open object store
   const store = tx.objectStore('contact');
 
-  //pass in the contect
-  const request = store.add({content: content});
+  //pass in the content - store.put
+  const request = store.put({id:1, value: content});
 
   //confirm request
   const result = await request;
-  console.log('Data saved to database.', result);
+  console.log('Data saved to database.', result.value);
 }
 
 // TODO: Add logic for a method that gets all the content from the database
